@@ -10,7 +10,7 @@ Bu ilke doğrultusunda, 21. yüzyılın kronik hastalığı olan Diyabet'i; sens
 "Kapsayıcı Sağlık Vizyonu (Inclusive Health): Sistemimiz, yüksek maliyetli sürekli glukoz sensörlerine erişimi olmayan, her gün parmak delme yöntemiyle ölçüm yapmak zorunda kalan bireyleri dışlamaz; aksine onları 'Veri Gönüllüsü' olarak merkeze alır. Bu bireylerin manuel veri girişlerini, akıllı saat (smartwatch) biyo-metrikleri ve ruhsal stres analizleriyle harmanlayarak, parmak delme sıklığını azaltacak ve yaşam kalitesini artıracak tahminleme modelleri geliştirir."
 
 ## ⚙️ Temel Modüller
-1. **Predictive Analytics:** Sensör verisi olmayanlar için "Elite 1000" grubundan gelen temiz veriyle şeker tahmini.
+1. **Predictive Analytics:** Sensör verisi olmayanlar için "Elite 3000" grubundan gelen temiz veriyle şeker tahmini.
 2. **Stress-Spike Correlation:** Ruhsal durumun (İş, trafik, duygu) glukoz üzerindeki etkisini ölçen algoritmalar.
 3. **Data Integrity Guard:** Yanıltıcı veri girişini tespit eden ve sistem güvenliğini koruyan blokaj mekanizması.
 
