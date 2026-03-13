@@ -4,7 +4,8 @@
 **Author:** PACDI Global / Usta Feraseti & Gemini AI
 
 ## 🛡️ Vizyon Bildirisi
-"İnsanlık Onuru ekmekten önce gelir." Bu ilke doğrultusunda, 21. yüzyılın kronik hastalığı olan Diyabet'i; sensör verisi, akıllı saat metrikleri ve ruhsal durum (stres) analizi ile kontrol altına alan dünyanın ilk "Usta-Çırak" odaklı sağlık pusulasıdır.
+“Unutmayın; İnsanlık Onurunu korumak toplumları birlik içinde ayakta tutmak için olmazsa olmaz bir gerekliliktir." 
+Bu ilke doğrultusunda, 21. yüzyılın kronik hastalığı olan Diyabet'i; sensör verisi, akıllı saat metrikleri ve ruhsal durum (stres) analizi ile kontrol altına alan dünyanın ilk "Usta-Çırak" odaklı sağlık pusulasıdır.
 
 ## ⚙️ Temel Modüller
 1. **Predictive Analytics:** Sensör verisi olmayanlar için "Elite 1000" grubundan gelen temiz veriyle şeker tahmini.
