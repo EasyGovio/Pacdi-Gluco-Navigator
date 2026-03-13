@@ -12,10 +12,12 @@ Bu ilke doğrultusunda, 21. yüzyılın kronik hastalığı olan Diyabet'i; sens
 2. **Stress-Spike Correlation:** Ruhsal durumun (İş, trafik, duygu) glukoz üzerindeki etkisini ölçen algoritmalar.
 3. **Data Integrity Guard:** Yanıltıcı veri girişini tespit eden ve sistem güvenliğini koruyan blokaj mekanizması.
 
+4. "Kapsayıcı Sağlık Vizyonu (Inclusive Health): Sistemimiz, yüksek maliyetli sürekli glukoz sensörlerine erişimi olmayan, her gün parmak delme yöntemiyle ölçüm yapmak zorunda kalan bireyleri dışlamaz; aksine onları 'Veri Gönüllüsü' olarak merkeze alır. Bu bireylerin manuel veri girişlerini, akıllı saat (smartwatch) biyo-metrikleri ve ruhsal stres analizleriyle harmanlayarak, parmak delme sıklığını azaltacak ve yaşam kalitesini artıracak tahminleme modelleri geliştirir."
+
 📝 Project Description (Resmi Tanım)
 Project Name: pacdi-gluco-navigator
 Slogan: Beyond Sensing, Into Living. (Ölçümün Ötesinde, Hayatın İçinde.)
-[TR] Açıklama: "Diyabet yönetiminde çığır açan bu sistem; invaziv (Libre vb.) ve non-invaziv (Smartwatch) verileri, kullanıcının ruhsal stres faktörleri (iş, trafik, duygu durum) ile korele eden yapay zeka tabanlı bir analitik platformdur. 'Elite 1000' onaylı veri havuzunu kullanarak, sensör imkanı olmayan bireyler için yüksek doğruluklu şeker tahminleme ve yaşam tarzı rehberliği sunar. İnsanlık onurunu ve veri dürüstlüğünü merkeze alan bir liyakat ekosistemidir."
+[TR] Açıklama: "Diyabet yönetiminde çığır açan bu sistem; invaziv (Libre vb.) ve non-invaziv (Smartwatch) verileri, kullanıcının ruhsal stres faktörleri (iş, trafik, duygu durum) ile korele eden yapay zeka tabanlı bir analitik platformdur. 'Elite 3000' onaylı veri havuzunu kullanarak, sensör imkanı olmayan bireyler için yüksek doğruluklu şeker tahminleme ve yaşam tarzı rehberliği sunar. İnsanlık onurunu ve veri dürüstlüğünü merkeze alan bir liyakat ekosistemidir."
 [EN] Description: "An AI-powered analytical platform that correlates invasive and non-invasive glucose data with psychological stress factors (work, traffic, emotional state). Utilizing the 'Elite 1000' validated dataset, it provides high-accuracy glucose forecasting and lifestyle guidance for individuals without access to continuous sensors. A merit-based ecosystem centered on human dignity and data integrity."
 🛡️ Plaza Diliyle "Core Features" (Öne Çıkan Özellikler)
 • Stress-Glucose Correlation: Duygusal stresin glukoz dalgalanmaları üzerindeki etkisini deşifre eder.
