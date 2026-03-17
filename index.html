@@ -1035,7 +1035,7 @@ nav { display: none; }
     <div>
       <h5>İletişim</h5>
       <ul>
-        <li><a href="mailto:info@gluconavigator.io">info@gluconavigator.io</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#1d74737b725d7a71687e72737c6b747a7c69726f337472"><span class="__cf_email__" data-cfemail="620b0c040d22050e17010d0c03140b0503160d104c0b0d">[email&#160;protected]</span></a></li>
         <li><a href="#">Berlin / Frankfurt</a></li>
         <li><a href="#">Destek Merkezi</a></li>
       </ul>
@@ -1065,15 +1065,17 @@ nav { display: none; }
   }
 
   // Form gönderimi
-  function submitForm() {
-    const name    = document.getElementById('f-name').value.trim();
-    const email   = document.getElementById('f-email').value.trim();
-    const country = document.getElementById('f-country').value;
-    const type    = document.getElementById('f-type').value;
-    const freq    = document.getElementById('f-freq').value;
-    const gdpr    = document.getElementById('f-gdpr').checked;
-    const msg     = document.getElementById('form-msg');
-    const btn     = document.querySelector('.form-submit');
+  async function submitForm() {
+    const name       = document.getElementById('f-name').value.trim();
+    const email      = document.getElementById('f-email').value.trim();
+    const city       = document.getElementById('f-city').value.trim();
+    const country    = document.getElementById('f-country').value;
+    const type       = document.getElementById('f-type').value;
+    const freq       = document.getElementById('f-freq').value;
+    const motivation = document.getElementById('f-motivation').value.trim();
+    const gdpr       = document.getElementById('f-gdpr').checked;
+    const msg        = document.getElementById('form-msg');
+    const btn        = document.querySelector('.form-submit');
 
     if (!name || !email || !country || !type || !freq) {
       msg.style.color = '#e67e22';
@@ -1085,13 +1087,40 @@ nav { display: none; }
       msg.textContent = '⚠️ Devam etmek için gizlilik politikasını onaylayın.';
       return;
     }
-    btn.textContent = '✅ Başvurunuz alındı! Sizi bekliyoruz.';
-    btn.style.background = '#27ae60';
-    btn.disabled = true;
-    msg.style.color = 'var(--muted)';
-    msg.textContent = 'En kısa sürede bilgilendirme e-postası gönderilecektir.';
-  }
 
+    btn.textContent = '⏳ Gönderiliyor...';
+    btn.disabled = true;
+
+    try {
+      const response = await fetch('https://formspree.io/f/xbdzpdwp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name, email, city, country,
+          diyabet_tipi: type,
+          olcum_sikligi: freq,
+          motivasyon: motivation,
+          kaynak: 'GlucoNavigator Elite 3000'
+        })
+      });
+      if (response.ok) {
+        btn.textContent = '✅ Başvurunuz alındı! Sizi bekliyoruz.';
+        btn.style.background = '#27ae60';
+        msg.style.color = 'var(--muted)';
+        msg.textContent = 'En kısa sürede bilgilendirme e-postası gönderilecektir.';
+      } else {
+        btn.textContent = '🎯 Elite 3000\'e Başvur — Ücretsiz';
+        btn.disabled = false;
+        msg.style.color = '#e67e22';
+        msg.textContent = '⚠️ Bir hata oluştu, lütfen tekrar deneyin.';
+      }
+    } catch(err) {
+      btn.textContent = '🎯 Elite 3000\'e Başvur — Ücretsiz';
+      btn.disabled = false;
+      msg.style.color = '#e67e22';
+      msg.textContent = '⚠️ Bağlantı hatası, lütfen tekrar deneyin.';
+    }
+  }
   // Counter animasyonu
   window.addEventListener('load', () => {
     setTimeout(() => {
@@ -1099,7 +1128,6 @@ nav { display: none; }
       if (fill) fill.style.width = '18%';
     }, 500);
   });
-
 </script>
 
 </body>
