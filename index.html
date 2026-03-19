@@ -34,9 +34,10 @@ overflow-x: hidden;
 
 /* ── HEADER ── */
 header {
-position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
 background: rgba(10,26,58,0.97);
 backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
 border-bottom: 1px solid rgba(42,195,183,.18);
 padding: 0 2rem;
 height: 68px;
@@ -80,7 +81,7 @@ transition: background .2s !important;
 .nav-cta:hover { background: var(–teal-dk) !important; }
 
 /* Lang Switch */
-.lang-switch { display: flex; gap: .4rem; }
+.lang-switch { display: flex; gap: .4rem; position: relative; z-index: 200; }
 .lang-switch button {
 background: none;
 border: 1px solid rgba(255,255,255,.2);
@@ -92,6 +93,9 @@ padding: .25rem .6rem;
 cursor: pointer;
 border-radius: 4px;
 transition: all .2s;
+pointer-events: all;
+position: relative;
+z-index: 200;
 }
 .lang-switch button:hover,
 .lang-switch button.active {
@@ -891,222 +895,7 @@ nav { display: none; }
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script src="lang.js"></script>
 
-const i18n = {
-tr: {
-nav_tech:‘Teknoloji’, nav_privacy:‘Gizlilik’, nav_elite:‘Elite 3000’, nav_science:‘Bilim’, nav_apply:‘Başvur →’,
-hero_badge:‘BETA LANSMAN — ELİTE 3000 AÇIK’,
-hero_h1:‘Glikoz Takibinin<br><em>Ötesine Geç.</em>’,
-hero_sub:‘GlucoNavigator, yalnızca ölçüm yapmaz — yorumlar. Stres, uyku ve hareket verilerini birleştiren yapay zeka motoru, sizi rakamların arkasındaki gerçekle tanıştırır.’,
-hero_cta1:‘🎯 Elite 3000'e Katıl’, hero_cta2:‘Teknolojiyi Keşfet’,
-stat1:‘Kurucu Üye Kontenjanı’, stat2:‘Ömür Boyu Ücretsiz Erişim’, stat3:‘GDPR & KVKK Uyumlu’,
-tech_label:‘Temel Teknoloji’, tech_title:‘Software-as-a-Sensor™<br>Nedir?’,
-tech_body:‘Donanımın sınırlarını aşmak için veriyi farklı okumak yeterlidir. GlucoNavigator, ham glikoz değerlerini çevresel ve biyometrik verilerle harmanlayarak size bütünsel bir metabolik tablo sunar.’,
-tc1_title:‘Tahmine Dayalı Analitik’, tc1_body:‘Geçmiş örüntülerinizi analiz eden motor, glikoz dalgalanmalarını gerçekleşmeden önce tespit eder ve sizi uyarır.’,
-tc2_title:‘Stres–Glikoz Korelasyonu’, tc2_body:‘Kortizol yükü ile kan şekeri arasındaki ilişkiyi modelleyen algoritmamız, duygusal tetikleyicileri görünür kılar.’,
-tc3_title:‘Data Integrity Guard’, tc3_body:‘Verileriniz cihazınızdan çıkmadan işlenir; sunuculara gönderilmeden önce anonimleştirilir ve şifrelenir.’,
-tc4_title:‘AR-GE Destekli Motor’, tc4_body:‘Klinik ortaklarla yürütülen Ar-Ge çalışmaları algoritmanın doğruluğunu sürekli artırır.’,
-chart_badge:‘Tahmin Aktif’,
-visual_title:‘Gerçek Zamanlı<br>Metabolik Harita’, visual_body:‘Glikoz, nabız, stres ve uyku verileri tek bir akıllı grafikte birleşiyor.’,
-priv_label:‘Anonimlik Kalkanı’, priv_title:‘Veri Sahibi<br>Hep Sizsiniz.’,
-priv_body:‘Sağlık veriniz hassastır ve öyle kalmalıdır. GlucoNavigator'ın GDPR-native mimarisi, verinizin sizi terk etmesini teknik olarak imkânsız kılar.’,
-pc1_title:‘GDPR & KVKK Tam Uyum’, pc1_body:‘Avrupa ve Türkiye gizlilik mevzuatına uygun veri işleme süreçleri.’,
-pc2_title:‘Sıfır Tanımlayıcı İlkesi’, pc2_body:‘İsim, kimlik, telefon — hiçbir kişisel tanımlayıcı sunucularımıza ulaşmaz.’,
-pc3_title:‘Yerelden İşleme’, pc3_body:‘Hassas hesaplamalar cihazınızda gerçekleşir. Buluta yalnızca anonim veriler iletilir.’,
-elite_label:‘Kurucu Topluluk’, elite_title:‘Elite 3000:<br>Hikâyenin Ortak Yazarları.’,
-elite_body:‘İlk 3.000 üye yalnızca kullanıcı değildir — GlucoNavigator'ın dönüşüm hikâyesini bizimle birlikte yazan Onursal Kuruculardır.’,
-perk1_title:‘Ömür Boyu Ücretsiz’, perk1_body:‘Premium özelliklere kalıcı, koşulsuz erişim.’,
-perk2_title:‘Ürün Yol Haritası’, perk2_body:‘Hangi özelliğin önce geliştirileceğini siz belirlersiniz.’,
-perk3_title:‘Onursal Kurucu Rozeti’, perk3_body:‘Profil ve uygulama içi kalıcı tanımlama.’,
-perk4_title:‘Özel Erken Erişim’, perk4_body:‘Tüm beta ve deneysel özellikler önce size açılır.’,
-counter_text:‘kontenjan doldu’,
-apply_label:‘Elite 3000 Başvurusu’, apply_title:‘Onursal Kurucu Olarak Yerini Al.’,
-f_name:‘Ad Soyad’, f_name_ph:‘Adınızı girin’, f_email:‘E-posta’, f_city:‘Şehir’, f_city_ph:‘İstanbul, Berlin…’,
-f_country:‘Ülke’, f_select:‘Seçiniz…’, f_other_eu:‘Diğer AB ülkesi’, f_other:‘Diğer’,
-f_diabetes:‘Diyabet Durumu’, f_t1:‘Tip 1 Diyabet’, f_t2:‘Tip 2 Diyabet’, f_pre:‘Prediyabet / Risk Grubu’,
-f_nodm:‘Diyabet Yok — Metabolik Sağlık Takibi’, f_notsay:‘Belirtmek İstemiyorum’,
-f_freq:‘Kan Şekeri Ölçüm Sıklığı’, f_freq1:‘Günde 1–2 kez (parmak ucu)’, f_freq2:‘Günde 3–5 kez (parmak ucu)’,
-f_freq3:‘Sensörlü ölçüm cihazı kullanıyorum’, f_freq4:‘Henüz düzenli ölçmüyorum’,
-cgm_title:‘Sensörlü ölçüm cihazı nedir?’, cgm_body:’ Parmağa batırmadan, cilde yapıştırılan küçük bir sensör aracılığıyla kan şekerini sürekli takip eden cihazdır.’,
-f_motivation:‘Katılma nedeniniz’, f_optional:’(isteğe bağlı)’, f_motivation_ph:‘Beklentilerinizi paylaşabilirsiniz…’,
-gdpr_text:‘Gizlilik Politikası'nı okudum ve kabul ediyorum. GDPR & KVKK uyumludur.’,
-submit_btn:‘🎯 Elite 3000'e Başvur — Ücretsiz’,
-sci_label:‘Bilimsel Zemin’, sci_title:‘Veriye Dayalı,<br>İnsana Odaklı.’,
-s1_title:‘Postprandiyal Glikoz Modellemesi’, s1_body:‘Yemek sonrası glikoz tepkisini kişiye özgü makro-besin profiliyle modelleyen makine öğrenmesi katmanı.’,
-s2_title:‘Sirkadiyen Ritim Entegrasyonu’, s2_body:‘Uyku döngüsü ve kortizol örüntüleri, insülin duyarlılığı tahminlerine dahil edilir.’,
-s3_title:‘Egzersiz–Glikoz Dinamikleri’, s3_body:‘Aerobik ve anaerobik aktivitelerin kısa/uzun vadeli glikoz üzerindeki farklı etkilerini ayrıştıran model.’,
-s4_title:‘Çok Değişkenli Anomali Tespiti’, s4_body:‘Motorumuz 7 biyometrik kaynağı eş zamanlı işleyerek tutarsızlıkları yakalar.’,
-aside_p1:‘Her ölçümün güvenilirliğini değerlendiren doğrulama katmanı, sensör hatalarını otomatik olarak işaretler.’,
-aside_p2:‘Ar-Ge sürecimiz klinik ortaklarla birlikte yürütülmektedir.’,
-footer_desc:‘Metabolik sağlığı herkes için anlaşılır kılmak amacıyla geliştirilen yapay zeka destekli glikoz navigasyon platformu.’,
-footer_platform:‘Platform’, footer_legal:‘Yasal’, footer_contact:‘İletişim’,
-footer_privacy_link:‘Gizlilik Politikası’, footer_terms:‘Kullanım Koşulları’,
-footer_copy:‘© 2026 GlucoNavigator · Tüm hakları saklıdır.’,
-},
-de: {
-nav_tech:‘Technologie’, nav_privacy:‘Datenschutz’, nav_elite:‘Elite 3000’, nav_science:‘Wissenschaft’, nav_apply:‘Bewerben →’,
-hero_badge:‘BETA-LAUNCH — ELITE 3000 OFFEN’,
-hero_h1:‘Glukose-Tracking<br><em>neu gedacht.</em>’,
-hero_sub:‘GlucoNavigator misst nicht nur — er interpretiert. Die KI-Engine verbindet Stress-, Schlaf- und Bewegungsdaten und zeigt Ihnen die Wahrheit hinter den Zahlen.’,
-hero_cta1:‘🎯 Elite 3000 beitreten’, hero_cta2:‘Technologie entdecken’,
-stat1:‘Gründer-Mitglieder’, stat2:‘Lebenslang kostenlos’, stat3:‘DSGVO & KVKK konform’,
-tech_label:‘Kerntechnologie’, tech_title:‘Was ist Software-as-a-Sensor™?’,
-tech_body:‘Um die Grenzen der Hardware zu überwinden, reicht es aus, Daten anders zu lesen. GlucoNavigator kombiniert rohe Glukosewerte mit Umwelt- und biometrischen Daten.’,
-tc1_title:‘Prädiktive Analytik’, tc1_body:‘Der Motor analysiert vergangene Muster und erkennt Glukoseschwankungen, bevor sie auftreten.’,
-tc2_title:‘Stress–Glukose-Korrelation’, tc2_body:‘Unser Algorithmus macht emotionale Auslöser sichtbar und modelliert den Zusammenhang zwischen Cortisolbelastung und Blutzucker.’,
-tc3_title:‘Data Integrity Guard’, tc3_body:‘Ihre Daten werden verarbeitet, ohne das Gerät zu verlassen; vor der Übertragung anonymisiert und verschlüsselt.’,
-tc4_title:‘F&E-gestützter Motor’, tc4_body:‘F&E-Arbeiten mit klinischen Partnern verbessern kontinuierlich die Genauigkeit des Algorithmus.’,
-chart_badge:‘Prognose aktiv’,
-visual_title:‘Echtzeit-<br>Stoffwechselkarte’, visual_body:‘Glukose, Puls, Stress und Schlaf vereint in einer intelligenten Grafik.’,
-priv_label:‘Anonymitätsschild’, priv_title:‘Sie bleiben<br>Dateneigentümer.’,
-priv_body:‘Ihre Gesundheitsdaten sind sensibel und sollen es bleiben. Die DSGVO-native Architektur macht es technisch unmöglich, dass Ihre Daten Sie verlassen.’,
-pc1_title:‘DSGVO & KVKK konform’, pc1_body:‘Datenschutzkonforme Verarbeitung nach europäischem und türkischem Recht.’,
-pc2_title:‘Zero-ID-Prinzip’, pc2_body:‘Name, ID, Telefon — kein persönlicher Identifier erreicht unsere Server.’,
-pc3_title:‘On-Device-Verarbeitung’, pc3_body:‘Sensible Berechnungen finden auf Ihrem Gerät statt. Nur anonyme Daten in die Cloud.’,
-elite_label:‘Gründer-Community’, elite_title:‘Elite 3000:<br>Mitautoren der Geschichte.’,
-elite_body:‘Die ersten 3.000 Mitglieder sind nicht nur Nutzer — sie sind Ehrengründer, die GlucoNavigators Erfolgsgeschichte mitschreiben.’,
-perk1_title:‘Lebenslang kostenlos’, perk1_body:‘Dauerhafter, bedingungsloser Zugang zu Premium-Funktionen.’,
-perk2_title:‘Produkt-Roadmap’, perk2_body:‘Sie bestimmen, welche Funktionen zuerst entwickelt werden.’,
-perk3_title:‘Ehrengründer-Abzeichen’, perk3_body:‘Dauerhafte Kennzeichnung im Profil und in der App.’,
-perk4_title:‘Exklusiver Früh-Zugang’, perk4_body:‘Alle Beta- und experimentellen Funktionen zuerst für Sie.’,
-counter_text:‘Plätze vergeben’,
-apply_label:‘Elite 3000 Bewerbung’, apply_title:‘Werden Sie Ehrengründer.’,
-f_name:‘Vor- und Nachname’, f_name_ph:‘Ihren Namen eingeben’, f_email:‘E-Mail-Adresse’, f_city:‘Stadt’, f_city_ph:‘Berlin, Istanbul…’,
-f_country:‘Land’, f_select:‘Auswählen…’, f_other_eu:‘Anderes EU-Land’, f_other:‘Sonstiges’,
-f_diabetes:‘Diabetes-Status’, f_t1:‘Typ-1-Diabetes’, f_t2:‘Typ-2-Diabetes’, f_pre:‘Prädiabetes / Risikogruppe’,
-f_nodm:‘Kein Diabetes — Stoffwechsel-Monitoring’, f_notsay:‘Keine Angabe’,
-f_freq:‘Blutzucker-Messfrequenz’, f_freq1:‘1–2x täglich (Fingerstich)’, f_freq2:‘3–5x täglich (Fingerstich)’,
-f_freq3:‘Ich nutze ein CGM-Gerät’, f_freq4:‘Noch keine regelmäßige Messung’,
-cgm_title:‘Was ist ein CGM-Gerät?’, cgm_body:’ Ein kleiner Sensor an der Haut misst den Blutzucker kontinuierlich ohne Fingerstich.’,
-f_motivation:‘Ihre Motivation’, f_optional:’(optional)’, f_motivation_ph:‘Teilen Sie Ihre Erwartungen…’,
-gdpr_text:‘Ich habe die Datenschutzerklärung gelesen und stimme zu. DSGVO-konform.’,
-submit_btn:‘🎯 Für Elite 3000 bewerben — Kostenlos’,
-sci_label:‘Wissenschaftliche Grundlage’, sci_title:‘Datengestützt,<br>menschenzentriert.’,
-s1_title:‘Postprandiale Glukosemodellierung’, s1_body:‘ML-Schicht, die die postprandiale Glukoseantwort mit dem individuellen Makronährstoffprofil modelliert.’,
-s2_title:‘Circadianer Rhythmus’, s2_body:‘Schlafzyklen und Cortisol-Muster fließen in Insulinsensitivitäts-Prognosen ein.’,
-s3_title:‘Sport–Glukose-Dynamik’, s3_body:‘Modell, das die unterschiedlichen kurz- und langfristigen Auswirkungen aerober und anaerober Aktivitäten auf Glukose trennt.’,
-s4_title:‘Multivariate Anomalie-Erkennung’, s4_body:‘Unser Motor verarbeitet 7 biometrische Quellen gleichzeitig und erkennt Inkonsistenzen.’,
-aside_p1:‘Die Validierungsschicht bewertet die Zuverlässigkeit jeder Messung und markiert Sensorfehler automatisch.’,
-aside_p2:‘Unsere F&E läuft mit klinischen Partnern; Modell-Updates durchlaufen regelmäßige Validierungszyklen.’,
-footer_desc:‘KI-gestützte Glukose-Navigationsplattform für ein bewussteres Leben mit Diabetes.’,
-footer_platform:‘Plattform’, footer_legal:‘Rechtliches’, footer_contact:‘Kontakt’,
-footer_privacy_link:‘Datenschutzerklärung’, footer_terms:‘Nutzungsbedingungen’,
-footer_copy:‘© 2026 GlucoNavigator · Alle Rechte vorbehalten.’,
-},
-en: {
-nav_tech:‘Technology’, nav_privacy:‘Privacy’, nav_elite:‘Elite 3000’, nav_science:‘Science’, nav_apply:‘Apply →’,
-hero_badge:‘BETA LAUNCH — ELITE 3000 OPEN’,
-hero_h1:‘Go Beyond<br><em>Glucose Tracking.</em>’,
-hero_sub:‘GlucoNavigator doesn't just measure — it interprets. Our AI engine combines stress, sleep and movement data to reveal the truth behind the numbers.’,
-hero_cta1:‘🎯 Join Elite 3000’, hero_cta2:‘Explore Technology’,
-stat1:‘Founding Member Slots’, stat2:‘Lifetime Free Access’, stat3:‘GDPR & KVKK Compliant’,
-tech_label:‘Core Technology’, tech_title:‘What is Software-as-a-Sensor™?’,
-tech_body:‘To go beyond hardware limits, all it takes is reading data differently. GlucoNavigator combines raw glucose values with environmental and biometric data for a holistic metabolic picture.’,
-tc1_title:‘Predictive Analytics’, tc1_body:‘The engine analyzes past patterns to detect glucose fluctuations before they happen and alerts you.’,
-tc2_title:‘Stress–Glucose Correlation’, tc2_body:‘Our algorithm models the relationship between cortisol load and blood sugar, making emotional triggers visible.’,
-tc3_title:‘Data Integrity Guard’, tc3_body:‘Your data is processed without leaving your device; anonymized and encrypted before any transmission.’,
-tc4_title:‘R&D-Powered Engine’, tc4_body:‘R&D work with clinical partners continuously improves algorithm accuracy.’,
-chart_badge:‘Prediction Active’,
-visual_title:‘Real-Time<br>Metabolic Map’, visual_body:‘Glucose, pulse, stress and sleep united in one intelligent graph.’,
-priv_label:‘Anonymity Shield’, priv_title:‘You Always Own<br>Your Data.’,
-priv_body:‘Your health data is sensitive and should remain so. GlucoNavigator's GDPR-native architecture makes it technically impossible for your data to leave you.’,
-pc1_title:‘Full GDPR & KVKK Compliance’, pc1_body:‘Data processing compliant with European and Turkish privacy law.’,
-pc2_title:‘Zero-ID Principle’, pc2_body:‘Name, ID, phone — no personal identifier ever reaches our servers.’,
-pc3_title:‘On-Device Processing’, pc3_body:‘Sensitive computations happen on your device. Only anonymous encrypted data goes to the cloud.’,
-elite_label:‘Founding Community’, elite_title:‘Elite 3000:<br>Co-Authors of the Story.’,
-elite_body:‘The first 3,000 members are not just users — they are Honorary Founders writing GlucoNavigator's transformation story with us.’,
-perk1_title:‘Lifetime Free’, perk1_body:‘Permanent, unconditional access to premium features.’,
-perk2_title:‘Product Roadmap’, perk2_body:‘You decide which features get built first.’,
-perk3_title:‘Honorary Founder Badge’, perk3_body:‘Permanent recognition in your profile and in-app.’,
-perk4_title:‘Exclusive Early Access’, perk4_body:‘All beta and experimental features open to you first.’,
-counter_text:‘slots filled’,
-apply_label:‘Elite 3000 Application’, apply_title:‘Claim Your Place as Honorary Founder.’,
-f_name:‘Full Name’, f_name_ph:‘Enter your name’, f_email:‘Email Address’, f_city:‘City’, f_city_ph:‘Berlin, Istanbul…’,
-f_country:‘Country’, f_select:‘Select…’, f_other_eu:‘Other EU country’, f_other:‘Other’,
-f_diabetes:‘Diabetes Status’, f_t1:‘Type 1 Diabetes’, f_t2:‘Type 2 Diabetes’, f_pre:‘Prediabetes / At Risk’,
-f_nodm:‘No Diabetes — Metabolic Health Tracking’, f_notsay:‘Prefer not to say’,
-f_freq:‘Blood Sugar Measurement Frequency’, f_freq1:‘1–2x daily (finger prick)’, f_freq2:‘3–5x daily (finger prick)’,
-f_freq3:‘I use a CGM device’, f_freq4:‘Not measuring regularly yet’,
-cgm_title:‘What is a CGM device?’, cgm_body:’ A small sensor attached to the skin that continuously monitors blood sugar without finger pricks.’,
-f_motivation:‘Your motivation’, f_optional:’(optional)’, f_motivation_ph:‘Share your expectations or story…’,
-gdpr_text:‘I have read and agree to the Privacy Policy. GDPR compliant.’,
-submit_btn:‘🎯 Apply for Elite 3000 — Free’,
-sci_label:‘Scientific Foundation’, sci_title:‘Data-Driven,<br>Human-Centered.’,
-s1_title:‘Postprandial Glucose Modeling’, s1_body:‘ML layer modeling post-meal glucose response with individual macronutrient profiles.’,
-s2_title:‘Circadian Rhythm Integration’, s2_body:‘Sleep cycles and cortisol patterns are incorporated into insulin sensitivity predictions.’,
-s3_title:‘Exercise–Glucose Dynamics’, s3_body:‘Model distinguishing short and long-term effects of aerobic vs anaerobic activities on glucose.’,
-s4_title:‘Multivariate Anomaly Detection’, s4_body:‘Our engine processes 7 biometric sources simultaneously to catch inconsistencies.’,
-aside_p1:‘The validation layer assesses the reliability of each measurement and automatically flags sensor errors.’,
-aside_p2:‘Our R&D runs with clinical partners; model updates go through regular validation cycles.’,
-footer_desc:‘AI-powered glucose navigation platform for conscious diabetes management.’,
-footer_platform:‘Platform’, footer_legal:‘Legal’, footer_contact:‘Contact’,
-footer_privacy_link:‘Privacy Policy’, footer_terms:‘Terms of Use’,
-footer_copy:‘© 2026 GlucoNavigator · All rights reserved.’,
-}
-};
-
-function setLang(lang) {
-const t = i18n[lang];
-document.querySelectorAll(’[data-i18n]’).forEach(el => {
-const key = el.getAttribute(‘data-i18n’);
-if (t[key] !== undefined) el.innerHTML = t[key];
-});
-document.querySelectorAll(’[data-i18n-ph]’).forEach(el => {
-const key = el.getAttribute(‘data-i18n-ph’);
-if (t[key] !== undefined) el.placeholder = t[key];
-});
-document.querySelectorAll(’.lang-switch button’).forEach(b => b.classList.remove(‘active’));
-document.getElementById(‘btn-’ + lang).classList.add(‘active’);
-document.documentElement.lang = lang;
-}
-
-function checkCGM(sel) {
-document.getElementById(‘cgm-info’).classList.toggle(‘visible’, sel.value === ‘cgm’);
-}
-
-async function submitForm() {
-const name  = document.getElementById(‘f-name’).value.trim();
-const email = document.getElementById(‘f-email’).value.trim();
-const country = document.getElementById(‘f-country’).value;
-const type  = document.getElementById(‘f-type’).value;
-const freq  = document.getElementById(‘f-freq’).value;
-const gdpr  = document.getElementById(‘f-gdpr’).checked;
-const msg   = document.getElementById(‘form-msg’);
-const btn   = document.querySelector(’.form-submit’);
-if (!name || !email || !country || !type || !freq) {
-msg.style.color = ‘#e67e22’;
-msg.textContent = ‘⚠️ Lütfen zorunlu alanları doldurun.’;
-return;
-}
-if (!gdpr) {
-msg.style.color = ‘#e67e22’;
-msg.textContent = ‘⚠️ Gizlilik politikasını onaylayın.’;
-return;
-}
-btn.textContent = ‘⏳…’;
-btn.disabled = true;
-try {
-const res = await fetch(‘https://formspree.io/f/xbdzpdwp’, {
-method: ‘POST’,
-headers: { ‘Content-Type’: ‘application/json’, ‘Accept’: ‘application/json’ },
-body: JSON.stringify({ name, email,
-city: document.getElementById(‘f-city’).value.trim(),
-country, diyabet_tipi: type, olcum_sikligi: freq,
-motivasyon: document.getElementById(‘f-motivation’).value.trim(),
-kaynak: ‘GlucoNavigator Elite 3000’ })
-});
-if (res.ok) {
-btn.textContent = ‘✅ Başvurunuz alındı!’;
-btn.style.background = ‘#27ae60’;
-} else {
-btn.textContent = ‘🎯 Elite 3000'e Başvur — Ücretsiz’;
-btn.disabled = false;
-msg.style.color = ‘#e67e22’;
-msg.textContent = ‘⚠️ Hata oluştu, tekrar deneyin.’;
-}
-} catch {
-btn.textContent = ‘🎯 Elite 3000'e Başvur — Ücretsiz’;
-btn.disabled = false;
-msg.style.color = ‘#e67e22’;
-msg.textContent
+</body>
+</html>
