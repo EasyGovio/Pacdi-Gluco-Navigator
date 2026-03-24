@@ -3,8 +3,8 @@
 GlucoNavigator, karmaşık glükoz verilerini ve biyometrik sinyalleri, bireylerin günlük yaşamlarını daha özgür ve bilinçli sürdürmelerini sağlayan bir Yaşam Navigasyonu'na dönüştüren devrimsel bir Wellness ekosistemidir.
 
 🏛️ Vizyon ve Felsefe
-"İnsanlık onurunu korumak toplumları b!rl!k !ç!nde ayakta tutmak !ç!n olmazsa olmaz b!r
-gerekl!l!kt!r."
+"İnsanlık onurunu korumak toplumları birlik içinde ayakta tutmak için olmazsa olmaz bir
+gerekliliktir."
 Bizim hedefimiz, bireyleri; kendi vücut ritimlerini anlayan, geleneksel sensör teknolojilerine (CGM) olan bağımlılığını yönetebilen ve insülin yönetimini daha bilinçli ve öngörülü hale getirme yolunda rehberlik alan bilinçli özneler haline getirmektir."
 
 🚀 Öne Çıkan Özellikler
